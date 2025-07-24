@@ -11,7 +11,7 @@ const tajawal = Tajawal({
 export const metadata: Metadata = {
   title: "راحتك - منصة التجارة الزراعية",
   description: "منصة رائدة لتجارة البذور، المنتجات الزراعية، والحيوانية والآليات الحديثة في السودان",
-    generator: 'v0.dev'
+  
 }
 
 export default function RootLayout({
