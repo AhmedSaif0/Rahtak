@@ -1,10 +1,10 @@
-import Navbar from "@/components/navbar"
-import SearchBar from "@/components/search-bar"
-import MainBanner from "@/components/main-banner"
-import CategoriesSection from "@/components/categories-section"
-import FeaturedProducts from "@/components/featured-products"
-import FeaturedVendors from "@/components/featured-vendors"
-import Footer from "@/components/footer"
+import Navbar from "@/components/navbar/navbar"
+import SearchBar from "@/components/search-bar/search-bar"
+import MainBanner from "@/components/main-banner/main-banner"
+import CategoriesSection from "@/components/categories/categories-section"
+import ProductsPage from "./products/page"
+import Footer from "@/components/footer/footer"
+import VendorsPage from "./vendors/page"
 
 export default function HomePage() {
   return (
@@ -13,8 +13,8 @@ export default function HomePage() {
       <SearchBar />
       <MainBanner />
       <CategoriesSection />
-      <FeaturedProducts />
-      <FeaturedVendors />
+      <ProductsPage />
+      <VendorsPage />
       <Footer />
     </div>
   )

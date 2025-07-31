@@ -1,7 +1,8 @@
 import type React from "react"
 import type { Metadata } from "next"
 import { Tajawal } from "next/font/google"
-import "./globals.css"
+// import "./globals.css"
+import "../styles/globals.css"
 
 const tajawal = Tajawal({
   subsets: ["arabic", "latin"],
