@@ -1,4 +1,4 @@
-import MachineryCard from "@/components/machinery-card"
+import MachineryCard from "@/components/machinery/machinery-card"
 
 const machineryData = [
   {

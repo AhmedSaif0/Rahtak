@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Search, User, Menu, ChevronDown } from "lucide-react";
 import { Button } from "../ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "../ui/sheet";
@@ -9,13 +10,14 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "../ui/navigation-menu";
+import Image from "next/image";
 import Link from "next/link";
 
 const Navbar = () => {
   const mainNavLinks = [
     { name: "الرئيسية", href: "/" },
     { name: "التجار", href: "/suppliers" },
-    { name: "الآليات الزراعية", href: "/agricultural-machinery" },
+    { name: "الآليات الزراعية", href: "/machinery" },
     { name: "من نحن", href: "/about" }
   ];
 
@@ -38,8 +40,18 @@ const Navbar = () => {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <Link href="/" className="text-2xl font-bold text-primary bg-transparent">
-              راحتك
+            <Link href="/">
+           
+              <span className="text-2xl font-bold text-primary bg-transparent">راحتك</span>
+    
+              {/* <Image
+                src="/logo.png"
+                alt="Rahtak Logo"
+                width={150}
+                height={50}
+                onError={() => setLogoError(true)}
+              /> */}
+    
             </Link>
           </div>
 

@@ -1,16 +1,4 @@
 import { Button } from "../ui/button";
-import {banner} from "@/public/images/banner.png"; 
-
-import { Sheet, SheetContent, SheetTrigger } from "../ui/sheet";
-import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-} from "../ui/navigation-menu";
-import Link from "next/link"; 
 
 const MainBanner = () => {
   return <div className="relative h-[500px] bg-cover bg-center flex items-center" style={{
