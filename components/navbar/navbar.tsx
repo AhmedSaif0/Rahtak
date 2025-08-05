@@ -16,7 +16,7 @@ import Link from "next/link";
 const Navbar = () => {
   const mainNavLinks = [
     { name: "الرئيسية", href: "/" },
-    { name: "التجار", href: "/suppliers" },
+    { name: "التجار", href: "/#featured-vendors" },
     { name: "الآليات الزراعية", href: "/machinery" },
     { name: "من نحن", href: "/about" }
   ];

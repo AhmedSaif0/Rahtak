@@ -1,4 +1,5 @@
 import { Button } from "../ui/button";
+import Link from "next/link";
 
 const MainBanner = () => {
   return <div className="relative h-[500px] bg-cover bg-center flex items-center" style={{
@@ -21,12 +22,12 @@ const MainBanner = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4">
-            <Button size="lg" className="bg-gradient-primary hover:shadow-glow transition-all duration-300 text-lg px-8 py-3">
-              تسوق الآن
-            </Button>
-            <Button size="lg" variant="outline" className="border-white hover:bg-white text-lg px-8 py-3 text-violet-800">
-              تعرف أكثر
-            </Button>
+            <Button size="lg" className="bg-gradient-primary hover:shadow-glow transition-all duration-300 text-lg px-8 py-3" asChild>
+  <Link href="/#categories">تسوق الآن</Link>
+</Button>
+<Button size="lg" variant="outline" className="border-white hover:bg-white text-lg px-8 py-3 text-violet-800" asChild>
+  <Link href="/about">تعرف أكثر</Link>
+</Button>
           </div>
         </div>
       </div>
