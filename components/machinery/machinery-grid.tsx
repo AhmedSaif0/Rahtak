@@ -165,7 +165,7 @@ export default function MachineryGrid() {
             <option>السعر: من الأعلى للأقل</option>
             <option>التقييم الأعلى</option>
           </select>
-        </div>
+        </div>x
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">

@@ -1,5 +1,6 @@
 'use client';
 
+import Link from "next/link";
 import VendorCard from "./vendor-card";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
@@ -53,7 +54,15 @@ const FeaturedVendors = () => {
   ];
 
   return (
-    <section className="py-16 bg-background" dir="rtl">
+    <>
+  <div className="mb-8 text-left">
+    <Link href="/">
+      <Button variant="outline" className="text-base px-6">
+        ⬅ رجوع
+      </Button>
+    </Link>
+  </div>
+  <section className="py-16 bg-background" dir="rtl">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold text-foreground mb-4">
@@ -71,16 +80,19 @@ const FeaturedVendors = () => {
         </div>
 
         <div className="text-center">
-          <Button 
-            size="lg" 
-            variant="outline" 
-            className="px-8 py-3 text-lg border-2 border-primary hover:bg-primary hover:text-primary-foreground"
-          >
-            عرض جميع التجار
-          </Button>
+          <Link href="/vendors">
+            <Button 
+              size="lg" 
+              variant="outline" 
+              className="px-8 py-3 text-lg border-2 border-primary hover:bg-primary hover:text-primary-foreground"
+            >
+              عرض جميع التجار
+            </Button>
+          </Link>
         </div>
       </div>
     </section>
+  </>
   );
 };
 

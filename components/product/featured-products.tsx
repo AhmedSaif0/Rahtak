@@ -1,4 +1,5 @@
 
+import Link from "next/link";
 import ProductCard from "./product-card";
 import { Button } from "../ui/button";
 import vegetableSeeds from "@/public/images/vegetable-seeds.jpg";
@@ -97,13 +98,15 @@ const FeaturedProducts = () => {
         </div>
 
         <div className="text-center">
-          <Button 
-            size="lg" 
-            variant="outline" 
-            className="px-8 py-3 text-lg border-2 border-primary hover:bg-primary hover:text-primary-foreground"
-          >
-            عرض جميع المنتجات
-          </Button>
+          <Link href="/products" >
+  <Button 
+    size="lg" 
+    variant="outline" 
+    className="px-8 py-3 text-lg border-2 border-primary hover:bg-primary hover:text-primary-foreground"
+  >
+    عرض جميع المنتجات
+  </Button>
+</Link>
         </div>
       </div>
     </section>

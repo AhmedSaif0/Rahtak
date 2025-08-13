@@ -1,6 +1,7 @@
 
 'use client';
 
+import Link from "next/link";
 import { Star, MapPin, Package } from "lucide-react";
 import { Button } from "../ui/button";
 import { Badge } from "../ui/badge";
@@ -95,12 +96,14 @@ const VendorCard = ({
       </p>
 
       <div className="flex gap-3">
-        <Button 
-          size="sm" 
-          className="flex-1 bg-gradient-primary hover:shadow-soft transition-all"
-        >
-          زيارة المتجر
-        </Button>
+        <Link href={`/vendors/${encodeURIComponent(name)}`} >
+  <Button 
+    size="sm" 
+    className="flex-1 bg-gradient-primary hover:shadow-soft transition-all"
+  >
+    زيارة المتجر
+  </Button>
+</Link>
         <Button 
           size="sm" 
           variant="outline"

@@ -18,6 +18,7 @@ const config: Config = {
   			ring: 'hsl(var(--ring))',
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
+			'earth-brown': 'hsl(var(--earth-brown))',
   			primary: {
   				'50': '#f0fdf4',
   				'100': '#dcfce7',

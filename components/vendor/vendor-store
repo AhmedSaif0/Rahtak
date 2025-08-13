@@ -1,0 +1,156 @@
+import Image from "next/image"
+import { Star, MapPin, Phone, Mail, Globe, Calendar, Award } from 'lucide-react'
+import { Badge } from "@/components/ui/badge"
+import { Button } from "@/components/ui/button"
+import type { Vendor } from "@/app/vendors/[id]/lib/getVendorById"
+
+interface VendorStoreHeaderProps {
+  vendor: Vendor
+}
+
+export default function VendorStoreHeader({ vendor }: VendorStoreHeaderProps) {
+  return (
+    <div className="bg-white">
+      {/* Cover Image */}
+      <div className="relative h-64 md:h-80">
+        <Image
+          src={vendor.coverImage || "/placeholder.svg"}
+          alt={`غلاف ${vendor.name}`}
+          fill
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-black bg-opacity-40" />
+      </div>
+
+      {/* Vendor Info */}
+      <div className="relative -mt-20 pb-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col md:flex-row items-start md:items-end space-y-4 md:space-y-0 md:space-x-6 md:space-x-reverse">
+            {/* Vendor Avatar */}
+            <div className="relative">
+              <Image
+                src={vendor.image || "/placeholder.svg"}
+                alt={vendor.name}
+                width={120}
+                height={120}
+                className="w-24 h-24 md:w-30 md:h-30 rounded-full border-4 border-white shadow-lg object-cover"
+              />
+              <div className="absolute -bottom-2 -right-2 bg-green-500 text-white rounded-full p-1">
+                <Award className="h-4 w-4" />
+              </div>
+            </div>
+
+            {/* Vendor Details */}
+            <div className="flex-1">
+              <div className="flex flex-col md:flex-row md:items-center md:justify-between">
+                <div>
+                  <h1 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">
+                    {vendor.name}
+                  </h1>
+                  
+                  <div className="flex items-center space-x-4 space-x-reverse mb-3">
+                    <div className="flex items-center">
+                      {[...Array(5)].map((_, i) => (
+                        <Star
+                          key={i}
+                          className={`h-5 w-5 ${
+                            i < Math.floor(vendor.rating)
+                              ? "text-yellow-400 fill-current"
+                              : "text-gray-300"
+                          }`}
+                        />
+                      ))}
+                      <span className="text-lg font-semibold text-gray-900 mr-2">
+                        {vendor.rating}
+                      </span>
+                      <span className="text-gray-600">({vendor.products} منتج)</span>
+                    </div>
+                  </div>
+
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {vendor.specialties.map((specialty, index) => (
+                      <Badge key={index} variant="secondary" className="bg-green-100 text-green-800">
+                        {specialty}
+                      </Badge>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="flex space-x-3 space-x-reverse">
+                  <Button className="bg-green-600 hover:bg-green-700">
+                    <Phone className="h-4 w-4 ml-2" />
+                    اتصل بنا
+                  </Button>
+                  <Button variant="outline" className="bg-transparent">
+                    <Mail className="h-4 w-4 ml-2" />
+                    راسلنا
+                  </Button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Additional Info */}
+          <div className="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="flex items-center space-x-3 space-x-reverse">
+              <MapPin className="h-5 w-5 text-green-600" />
+              <div>
+                <p className="text-sm text-gray-600">الموقع</p>
+                <p className="font-medium">{vendor.address}</p>
+              </div>
+            </div>
+
+            <div className="flex items-center space-x-3 space-x-reverse">
+              <Calendar className="h-5 w-5 text-green-600" />
+              <div>
+                <p className="text-sm text-gray-600">تأسست في</p>
+                <p className="font-medium">{vendor.establishedYear}</p>
+              </div>
+            </div>
+
+            <div className="flex items-center space-x-3 space-x-reverse">
+              <Phone className="h-5 w-5 text-green-600" />
+              <div>
+                <p className="text-sm text-gray-600">الهاتف</p>
+                <p className="font-medium" dir="ltr">{vendor.phone}</p>
+              </div>
+            </div>
+
+            {vendor.website && (
+              <div className="flex items-center space-x-3 space-x-reverse">
+                <Globe className="h-5 w-5 text-green-600" />
+                <div>
+                  <p className="text-sm text-gray-600">الموقع الإلكتروني</p>
+                  <p className="font-medium text-green-600">{vendor.website}</p>
+                </div>
+              </div>
+            )}
+          </div>
+
+          {/* Description */}
+          <div className="mt-8">
+            <h3 className="text-lg font-semibold text-gray-900 mb-3">نبذة عن المتجر</h3>
+            <p className="text-gray-600 leading-relaxed max-w-4xl">
+              {vendor.description}
+            </p>
+          </div>
+
+          {/* Certifications */}
+          {vendor.certifications && vendor.certifications.length > 0 && (
+            <div className="mt-6">
+              <h4 className="text-md font-semibold text-gray-900 mb-3">الشهادات والتراخيص</h4>
+              <div className="flex flex-wrap gap-2">
+                {vendor.certifications.map((cert, index) => (
+                  <Badge key={index} className="bg-blue-100 text-blue-800">
+                    <Award className="h-3 w-3 ml-1" />
+                    {cert}
+                  </Badge>
+                ))}
+              </div>
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+  )
+}
